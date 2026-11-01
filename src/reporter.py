@@ -24,15 +24,3 @@ class DataFrameReporter:
         missing_share = missing / (df.shape[0] * df.shape[1])
         print('Доля пропусков:', format(missing_share, self.float_format))
 
-
-import pandas as pd
-
-data = pd.read_csv('data/payments.csv')
-
-# не нужно менять код ниже - он для проверки правильности работы show_report с разными настройками
-reporter_1 = DataFrameReporter(float_format='0.02f', percent_format='0.03%')
-reporter_2 = DataFrameReporter(float_format='0.03f', percent_format='0.01%', include_all=True)
-
-reporter_1.show_report(data, 'Отчёт в формате 1:')
-print()
-reporter_2.show_report(data, 'Отчёт в формате 2:')
